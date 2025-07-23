@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import type { House } from '../types/House'; // Adjust the path as needed
+import type { House } from '../types/house'; // Adjust the path as needed
  // Adjust the path as needed
 
 interface Props {
@@ -13,7 +13,7 @@ export default function HouseCard({house}: Props) {
 <div className="p-4">
     <h2 className="text-lg font-semibold">{house.title}</h2>
     <p className="text-sm text-gray-500">{house.location}</p>
-    <p className="text-blue font-bold mt-2">${house.price} / mois</p>
+    <p className="text-blue-500 font-bold mt-2">${house.price} / mois</p>
 <Link to={`/house/${house.id}`} className="inline-block mt-3 text-sm text-white bg-blue-600 px-4 py-2 rounded-xl hover:bg-blue-700 ">
 voir les details
 </Link>

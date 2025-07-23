@@ -6,7 +6,7 @@ export const houses:House[] =[
         title:"villa moderne avec piscine",
         location:"kinshasa",
         price:1500,
-        image:"https://source.unsplash.com/featured/?house",
+        image:"src/assets/pexels-ingo-87378.jpg",
         description:"Une villa moderne avec piscine située à Kinshasa, idéale pour les vacances."
     },
     {
@@ -14,7 +14,7 @@ export const houses:House[] =[
         title:"appartement cosy en ville",
         location:"kinshasa",
         price:800,
-        image:"https://source.unsplash.com/featured/?apartment",
+        image:"src/assets/pexels-jonathanborba-5563472 (1).jpg",
         description:"Un appartement cosy en plein centre de Kinshasa, parfait pour un séjour urbain."
     },
     {
@@ -22,7 +22,7 @@ export const houses:House[] =[
         title:"maison familiale spacieuse",
         location:"kinshasa",
         price:1200,
-        image:"https://source.unsplash.com/featured/?family-house",
+        image:"src/assets/pexels-pixabay-53610.jpg",
         description:"Une maison spacieuse pour les familles, avec un grand jardin et proche des écoles."
     }
 ]

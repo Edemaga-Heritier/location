@@ -12,7 +12,7 @@ export default function HouseDetails() {
     if(!house) return <p>Maison introuvable</p>
     return(
         <><div className=" max-w-3xl mx-auto bg-white p-6 rounded-xl shadow">
-            <img src={house.image} alt={house.title} className="w-full h-64 object-cover rounded-xl" />
+            <img src={house.image } alt={house.title} className="w-full h-64 object-cover rounded-xl" />
             <h2 className="text-2xl font-bold  mt-4">{house.title}</h2>
             <p className="text-gray-600">{house.location}</p>
             <p className="text-xl text-blue-600 font-semibold mt-2">{house.price}</p>

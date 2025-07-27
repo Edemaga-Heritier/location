@@ -1,7 +1,7 @@
 import { useState } from "react";
 import HouseCard from "../components/HouseCard";
 import { houses as allHouses } from "../data/house";
-import SearchBar from "../components/searchBar";
+
 import Filters from "../components/filters";
 
 export default function Home(){

@@ -1,16 +1,18 @@
 import { Outlet } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 export default function MainLayout(){
     return(
         <div>
-            <header className="bg-white shadow p-4">
-                <h1 className="text-xl font-bold text-blue-600">Location Maison</h1>
-            </header>
+          <NavBar />
             <main className="min-h-screen bg-gray-100 p-6">
-                <Outlet />
+                <div className="container mx-auto px-4 py-6">
+                  <Outlet />   
+                </div>
+               
                 </main>  
                 <footer className="bg-white text-center py-4 shadow-inner">
-                    <p className="text-sm text-gray-500">&copy;2025 -tous droits réservés</p>
+                    <p className="text-sm text-gray-500">2025 Lokaz -tous droits réservés</p>
                 </footer>
         </div>
     )

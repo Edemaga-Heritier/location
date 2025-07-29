@@ -18,7 +18,7 @@ export default function HouseCard({house}: Props) {
         {house.location}</p>
     <p  className="text-blue-500 font-bold mt-2">
         <DollarSign className="inline w-4 h-4 mr-1" />
-        ${house.price} / mois</p>
+        {house.price} / mois</p>
     <div className="mt-3">
         <p className="text-sm text-gray-600">Chambres: {house.bedrooms}</p>
         <p className="text-sm text-gray-600">Surface: {house.surface} m²</p>

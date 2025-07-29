@@ -19,8 +19,7 @@ export default function Contact() {
             <textarea className="w-full p-2 border border-gray-300 rounded" id="message" name="message" rows={4} required></textarea>
         </div>
         <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-200" type="submit">Envoyer</button>
+    </form>
     </section>
-    )
-
-        
+    )    
 }

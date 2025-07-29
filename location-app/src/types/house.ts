@@ -5,4 +5,10 @@ export interface House{
     price:number
     image:string
     description:string
+    bedrooms:number
+    surface:number
+    kitchen:boolean
+    garden:boolean
+    garage:boolean
+    type:string
 }

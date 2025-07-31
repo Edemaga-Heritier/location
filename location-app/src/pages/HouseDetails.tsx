@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { houses } from "../data/house"
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 
 
@@ -15,6 +16,7 @@ export default function HouseDetails() {
     if(!house) return <p>Maison introuvable</p>
     return(
         <>
+        <div className="animate-fadeInUp">
         <div className=" max-w-3xl mx-auto bg-white p-6 rounded-xl shadow">
             <img src={new URL(`../assets/${house.image}`, import.meta.url).href} alt={house.title} className="w-full h-64 object-cover rounded-xl" />
             <h2 className="text-2xl font-bold  mt-4">{house.title}</h2>
@@ -38,11 +40,15 @@ export default function HouseDetails() {
             
             className="mt-6 px-6 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700">reserver cette maison</button>
 
-
+        </div>
         </div>
         {
             showForm &&(
-                <div className="mt-8 p-6 border rounded-xl shadow-lg bg-white max-w-xl mx-auto">
+                <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className=" mt-8 p-6 border rounded-xl shadow-lg bg-white max-w-xl mx-auto">
 <h2 className="text-2xl font-bold mb-4">Formulaire de reservation</h2>
 <form className="space-y-4">
     <div>
@@ -70,7 +76,7 @@ export default function HouseDetails() {
     </button>   
 </form>
                 
-                </div>
+                </motion.div>
             )
         }
         

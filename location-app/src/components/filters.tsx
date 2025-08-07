@@ -103,22 +103,23 @@ export default function Filters({onFilter}:Props){
             <option value="false">Non</option>
         </select>
     <div className="col-span-1 md:col-span-2 flex items-center space-x-2">
-    <span>Prix :</span>
+    <span>Prix : $</span>
     <input
-    type="range"
+    type="number"
     min="0"
-    max={1000000}
+   
     value={minPrice}
     onChange={(e) => setMinPrice(+e.target.value)}
+    className="p-2 border rounded"
     />
     <span>{maxPrice} $</span>
     <input
-        type="range"
+        type="number"
         min="0"
-        max={1000000}
+        
         value={maxPrice}
         onChange={(e) => setMaxPrice(+e.target.value)}
-        className="ml-2"
+        className="p-2 border rounded"
     />
     </div>
     <button

@@ -1,5 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { BaseModel, belongsTo, column } from '@adonisjs/lucid/orm'
+import type { BelongsTo } from '@adonisjs/lucid/types/relations'
+
+import User from './user.js'
 
 export default class House extends BaseModel {
   @column({ isPrimary: true })
@@ -26,9 +29,15 @@ export default class House extends BaseModel {
   @column()
   public image!: string
   @column()
-  public has_garden!: boolean
+  public garden!: boolean
   @column()
-  public has_garage!: boolean
+  public garage!: boolean
+
+  @column()
+  public userId!: number
+
+  @belongsTo(() => User)
+  declare user: BelongsTo<typeof User>
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime

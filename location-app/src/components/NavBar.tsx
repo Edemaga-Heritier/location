@@ -1,9 +1,15 @@
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 export default function NavBar() {
     const [open, setOpen] = useState(false);
+    const { user } = useContext(AuthContext);
+
+    const handleLogin = () =>{
+        window.location.href = `${import.meta.env.VITE_API_URL} || "http://localhost:3333"/auth/google`;
+    }
 return(
     <nav className="bg-white shadow sticky top-0 z-50">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -28,6 +34,17 @@ return(
             </ul>     
             
                 </div>
+                <div className="flex items-center gap-4">
+                    {!user ? (
+                        <button onClick={handleLogin} className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors">
+                            se connecter avec Google
+                        </button>
+                    ):(
+                        <div className="flex items-center gap-3">
+                            {user.avatarUrl ?<img src={user.avatarUrl} alt="Avatar" className="w-8 h-8 rounded-full" /> :null}
+                            <div className="text-sm">{user.fullName}</div>
+                            </div>
+                    )}
           
         </div>
         {open && (<ul className="md:hidden bg-white shadow-lg absolute top-16 left-0 w-full px-4 py-2">

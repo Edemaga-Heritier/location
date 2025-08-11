@@ -9,11 +9,30 @@ type User = {
     avatarUrl?: string | null;
 } | null;
 
+type House = {
+    id: number;
+    address: string;
+    price: number;
+    description: string;
+    image?: string; // Optional field
+    type: string; // e.g., "apartment", "house", etc.
+    location: string; // e.g., "New York", "Paris", etc.
+    surface: number; // in square meters
+    bedrooms: number;
+    bathrooms: number;
+    garden?: boolean; // Optional field
+    garage?: boolean; // Optional field
+    userId: number; // ID of the user who owns the house
+    createdAt?: string; // Optional, if you want to track when the house was created
+    updatedAt?: string; // Optional, if you want to track when the house was last updated
+    // Add other house properties as needed
+};
+
 type AuthContextType = {
     user: User;
     setUser: (user: User) => void;
-    houses: any[]; // Adjust type as needed
-    setHouses: (houses: any[]) => void;
+    houses: House[];
+    setHouses: (houses: House[]) => void;
     refreshHouses: () => Promise<void>;
 }
    export const AuthContext = createContext<AuthContextType>({
@@ -26,7 +45,7 @@ type AuthContextType = {
 
 export const AuthProvider = ({children}:{children:React.ReactNode}) => {
     const [user, setUser] = useState<User>(null);
-    const [houses, setHouses] = useState<any[]>([]); // Adjust type as needed
+    const [houses, setHouses] = useState<House[]>([]);
 
     // Recupere l'utilisateur connnecté
     useEffect(() => {
@@ -34,7 +53,7 @@ export const AuthProvider = ({children}:{children:React.ReactNode}) => {
             try {
                 const userData = await fetchMe();
                 setUser(userData);
-            } catch (error) {
+            } catch {
                 setUser(null);
             }
         };
@@ -52,4 +71,6 @@ export const AuthProvider = ({children}:{children:React.ReactNode}) => {
         <AuthContext.Provider value={{ user, setUser, houses, setHouses, refreshHouses }}>
             {children}
         </AuthContext.Provider>
-    );
+    )
+
+}

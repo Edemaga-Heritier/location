@@ -1,46 +1,28 @@
-import axios from 'axios'
 
-const API = axios.create({
-    baseURL:'http://localhost:3333',
-})
 
-export const getAllHouses = async () =>{
-    const res =await API.get('/houses')
-    return res.data
+import API from './api'; // Adjust the path as needed
+
+
+export const fetchHouses = () => API.get("/houses").then((r) => r.data);
+interface HousePayload {
+	// Define the properties of a house, for example:
+	name: string;
+	price: number;
+    description: string;
+    image?: string; // Optional field
+    type: string; // e.g., "apartment", "house", etc.
+    location: string; // e.g., "New York", "Paris", etc.
+    surface: number; // in square meters
+    bedrooms: number;
+    bathrooms: number;
+    garden?: boolean; // Optional field
+    garage?: boolean; // Optional field
+    userId: number; // ID of the user who owns the house
+    createdAt?: string; // Optional, if you want to track when the house was created
+    updatedAt?: string; // Optional, if you want to track when the house was last
+	// Add other fields as needed
+
 }
 
-export const getHouseById = async (id: number | string) =>{
-    const res = await API.get(`/houses/${id}`)
-    return res.data
-}
-
-interface House {
-    // Define the properties of a house, for example:
- id:number
-    title:string
-    location:string
-    price:number
-    image:string
-    description:string
-    bedrooms:number
-    surface:number
-    kitchen:boolean
-    garden:boolean
-    garage:boolean
-    type:string
-
-    // Add other relevant fields
-}
-
-export const createHouse = async (data: House) => {
-    const res = await API.post('/houses', data)
-    return res.data
-}
-export const updateHouse = async (id: number, data: House) => {
-    const res = await API.put(`/houses/${id}`, data)
-    return res.data
-}
-export const deleteHouse = async (id: number) => {
-    const res = await API.delete(`/houses/${id}`)
-    return res.data
-}
+export const createHouse = (payload: HousePayload) => API.post("/houses", payload).then((r) => r.data);
+export const fetchHouse = (id: number | string) => API.get(`/houses/${id}`).then((r) => r.data);

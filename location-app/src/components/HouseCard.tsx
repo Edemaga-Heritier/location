@@ -29,6 +29,7 @@ export default function HouseCard({house}: Props) {
             ? 'Oui' : 'Non'}</p>
         <p className="text-sm text-gray-600">Garage: {house.garage
             ? 'Oui' : 'Non'}</p>
+            
     </div>
 <Link to={`/house/${house.id}`} className="inline-block mt-3 text-sm text-white bg-blue-600 px-4 py-2 rounded-xl hover:bg-blue-700 ">
 voir les details
